@@ -1,0 +1,31 @@
+{
+  "name": "Android Theme App — Themify",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "features": {
+    "ghcr.io/devcontainers/features/android-sdk:1": {
+      "version": "latest",
+      "buildTools": "35.0.0",
+      "platformApis": "35"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "fwcd.kotlin",
+        "mathiasfrohlich.Kotlin",
+        "redhat.java",
+        "vscjava.vscode-gradle"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x gradlew && ./gradlew dependencies --quiet && echo '\n✅ Themify ready! Run: ./gradlew assembleDebug'",
+  "remoteEnv": {
+    "ANDROID_HOME": "/usr/local/lib/android/sdk",
+    "PATH": "${PATH}:/usr/local/lib/android/sdk/platform-tools"
+  }
+}
